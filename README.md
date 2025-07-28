@@ -43,8 +43,8 @@ react-dashboard/
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd react-dashboard
+   git clone https://github.com/harshitverma-dev/react-dashboard-pages.git
+   cd react-dashboard-pages
    ```
 
 2. Install dependencies:
@@ -94,3 +94,7 @@ react-dashboard/
 ---
 
 This documentation provides a clear overview of the project structure and how to get started with development and production builds.
+
+
+Deployed link : -
+https://react-dashboard-pages-by-harshit.netlify.app/
