@@ -1,0 +1,152 @@
+@layer tailwind-base, primereact, tailwind-utilities;
+
+@import 'primereact/resources/themes/lara-light-blue/theme.css' layer(primereact);
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+
+@layer base {
+  :root {
+    --foreground: 0, 0%, 11%, 1;
+    --activity-line-color: 0, 0%, 11%, 0.1;
+    --muted-foreground: 0, 0%, 11%, 0.4;
+    --background: 0, 0%, 100%;
+    --card: 240, 33%, 98%;
+    --table-head-border: 0, 0%, 11%, 0.2;
+    --bg-hover: 0, 0%, 91%;
+    --color-icon: 0, 0%, 11%, 0.2;
+    --active-item-bg: 0, 0%, 11%, 0.05;
+    --order-table-border: 0, 0%, 11%, 0.05;
+    --bg-check-active: 0, 0%, 11%, 1;
+    --card-foreground: 240 5.9% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 5.9% 10%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --chart-bar-actual: 220 13% 91%;
+    --chart-bar-projection: 240 5.9% 10%;
+    --chart-line-current: 240 5.9% 10%;
+    --chart-line-previous: 205, 40%, 76%, 1;
+    --chart-pie-direct: 240 5.9% 10%;
+    --chart-pie-affiliate: 240 5.9% 10%;
+    --chart-pie-sponsored: 240 5.9% 10%;
+    --chart-pie-email: 240 5.9% 10%;
+  }
+
+  .dark {
+    --foreground: 0, 0%, 100%, 1;
+    --activity-line-color: 0, 0%, 100%, 0.1;
+    --muted-foreground: 0, 0%, 100%, 0.4;
+    --background: 0, 0%, 11%;
+    --card: 0, 0%, 16%;
+    --table-head-border: 0, 0%, 100%, 0.2;
+    --bg-hover: 0, 0%, 22%;
+    --color-icon: 0, 0%, 100%, 0.2;
+    --active-item-bg: 0, 0%, 100%, 0.1;
+    --order-table-border: 0, 0%, 100%, 0.1;
+    --bg-check-active: 239, 78%, 87%, 1;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-bar-actual: 240 3.7% 15.9%;
+    --chart-bar-projection: 240 5.9% 10%;
+    --chart-line-current: 205, 40%, 76%, 1;
+    --chart-line-previous: 239, 78%, 87%, 1;
+    --chart-pie-direct: 240 5.9% 10%;
+    --chart-pie-affiliate: 240 5.9% 10%;
+    --chart-pie-sponsored: 240 5.9% 10%;
+    --chart-pie-email: 240 5.9% 10%;
+  }
+}
+
+@layer utilities {
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+
+  .bg-foreground {
+    background-color: hsl(var(--foreground));
+  }
+
+  .active-item-bg {
+    background-color: hsl(var(--active-item-bg));
+  }
+
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .bg-check-active {
+    background-color: hsl(var(--bg-check-active));
+  }
+
+  .bg-hover {
+    background-color: hsl(var(--bg-hover));
+  }
+
+  .activity-line {
+    border-color: hsl(var(--activity-line-color));
+  }
+
+  .table-head-border {
+    border-color: hsl(var(--table-head-border));
+  }
+
+  .bg-icon {
+    color: hsl(var(--color-icon));
+  }
+
+  .border-muted-foreground {
+    border-color: hsl(var(--muted-foreground));
+  }
+
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+
+  .bg-card {
+    background-color: hsl(var(--card));
+  }
+
+  .text-card-foreground {
+    color: hsl(var(--card-foreground));
+  }
+
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+
+  .order-table-border {
+    border-color: hsl(var(--order-table-border));
+  }
+}
