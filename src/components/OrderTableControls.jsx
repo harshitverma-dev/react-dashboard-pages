@@ -35,7 +35,7 @@ const OrderTableControls = ({ searchTerm, onSearchChange, onSort, sortBy, sortDi
           type="text"
           id="order-search"
           name="order-search"
-          placeholder="Search"
+          placeholder="Search By Order Status"
           className="pl-9 pr-3 focus-visible:outline-none bg-card border-[1px] border-solid activity-line py-2 h-[33px] rounded-[8px] shadow-none text-[14px] leading-[20px] font-[400] w-64 text-foreground"
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}

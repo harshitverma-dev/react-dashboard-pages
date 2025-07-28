@@ -11,69 +11,64 @@ export default function OrderList() {
   const { orders } = useSelector(selectDashboardData)
   const [searchTerm, setSearchTerm] = useState("")
   const [sortBy, setSortBy] = useState("date")
-  const [sortDirection, setSortDirection] = useState("desc") 
+  const [sortDirection, setSortDirection] = useState("desc")
   const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 10;
+  const itemsPerPage = 10
 
   const filteredAndSortedOrders = useMemo(() => {
     let currentOrders = [...orders]
+    const normalizedSearch = searchTerm.toLowerCase()
 
     if (searchTerm) {
-      currentOrders = currentOrders.filter(
-        (order) =>
-          order.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          order.user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          order.project.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          order.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          order.status.toLowerCase().includes(searchTerm.toLowerCase()),
+      currentOrders = currentOrders.filter((order) =>
+        order?.id?.toString().toLowerCase().includes(normalizedSearch) ||
+        order?.user?.name?.toLowerCase().includes(normalizedSearch) ||
+        order?.project?.toLowerCase().includes(normalizedSearch) ||
+        order?.address?.toLowerCase().includes(normalizedSearch) ||
+        order?.status?.toLowerCase().includes(normalizedSearch)
       )
     }
 
-
     const relativeDateToTimestamp = (str) => {
-      const now = new Date();
+      const now = new Date()
 
       switch (str) {
         case "Just now":
-          return now.getTime();
+          return now.getTime()
         case "A minute ago":
-          return now.getTime() - 60 * 1000;
+          return now.getTime() - 60 * 1000
         case "1 hour ago":
-          return now.getTime() - 60 * 60 * 1000;
+          return now.getTime() - 60 * 60 * 1000
         case "2 hour ago":
-          return now.getTime() - 2 * 60 * 60 * 1000;
+          return now.getTime() - 2 * 60 * 60 * 1000
         case "Yesterday":
-          return now.getTime() - 24 * 60 * 60 * 1000;
+          return now.getTime() - 24 * 60 * 60 * 1000
         default: {
-          const parsed = new Date(str);
-          return !isNaN(parsed.getTime()) ? parsed.getTime() : 0;
+          const parsed = new Date(str)
+          return !isNaN(parsed.getTime()) ? parsed.getTime() : 0
         }
       }
-    };
+    }
 
     currentOrders.sort((a, b) => {
-      let valA = a[sortBy];
-      let valB = b[sortBy];
+      let valA = a[sortBy]
+      let valB = b[sortBy]
 
       if (sortBy === "date") {
-        valA = relativeDateToTimestamp(a.date);
-        valB = relativeDateToTimestamp(b.date);
+        valA = relativeDateToTimestamp(a.date)
+        valB = relativeDateToTimestamp(b.date)
       }
 
-      if (valA < valB) {
-        return sortDirection === "asc" ? -1 : 1;
-      }
-      if (valA > valB) {
-        return sortDirection === "asc" ? 1 : -1;
-      }
-      return 0;
-    });
+      if (valA < valB) return sortDirection === "asc" ? -1 : 1
+      if (valA > valB) return sortDirection === "asc" ? 1 : -1
+      return 0
+    })
 
-    return currentOrders;
-
+    return currentOrders
   }, [orders, searchTerm, sortBy, sortDirection])
 
   const totalPages = Math.ceil(filteredAndSortedOrders.length / itemsPerPage)
+
   const paginatedOrders = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage
     const endIndex = startIndex + itemsPerPage
@@ -105,7 +100,11 @@ export default function OrderList() {
           sortDirection={sortDirection}
         />
         <OrderTable orders={paginatedOrders} />
-        <OrderTablePagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+        <OrderTablePagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </Card>
     </div>
   )
