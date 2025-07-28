@@ -4,7 +4,7 @@ import ClientLayout from './layouts/ClientLayout'
 import AppRouter from './routers/AppRouter'
 import React from 'react'
 import { store } from './app/store'
-import ThemeProvider from './theme/themeProvider'
+import ThemeProvider from './theme/ThemeProvider.jsx'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
