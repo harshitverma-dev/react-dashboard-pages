@@ -26,7 +26,7 @@ const RightSidebar = () => {
   ]
 
   return (
-    <div className="w-full h-full bg-background border-l border-border p-4 flex flex-col shadow-sm fixed">
+    <div className="w-full h-full bg-background border-l border-border p-4 flex flex-col shadow-sm fixed overflow-y-auto">
       <div className="mb-6">
         <CustomHeading title="Notifications" mt="mt-3" mb="mb-5"/>
         <ul className="space-y-3">
